@@ -47,7 +47,7 @@ ylabel('Number of pulses','fontsize',fontsize1);
 % %title('Range lines: after Eq Notch (1 person)','fontsize',fontsize1);
 
 
-%%======= Input============================================================================================================================================
+%%=======Input============================================================================================================================================
 
 
 %Maintain Number of Columns
@@ -91,7 +91,7 @@ end
 %detection logic, the data after power law array is substract with the threshold array
 %(if negative, return 0 meaning no target;if positive return 1 meaning target detected)
 Detections_rt = double((Abs_Data-T_CACFAR)>0);
-----------------------------------------------------------------------------------------------------------------------------
+%%----------------------------------------------------------------------------------------------------------------------------
 %define PRI
 PRI = 1/PRF_Hz;
 
@@ -171,7 +171,7 @@ for k = 1:count
     Detections_subset = double((abs_subset-T_subset)>0);			% apply detection logic
     
     %marking the plot with x
-    x_plot_pulses_rangebins(Detections_subset,abs_subset);
+    x_plot_range_doppler(Detections_subset, abs_subset, c, Bandwidth_Hz, PRF_Hz, window_length,start_bin);
     
     Detection_Col(k,:) = sum(Detections_subset);                %put all detection of the range-Doppler map to 1 row according to the range bin
                 
